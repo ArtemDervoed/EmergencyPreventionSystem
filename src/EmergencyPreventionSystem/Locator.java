@@ -1,5 +1,6 @@
 package EmergencyPreventionSystem;
 
+
 public class Locator {
     private int intermediate;
     private int none;
@@ -17,7 +18,7 @@ public class Locator {
         critical = 0;
     }
 
-    private void dangerSort(int counter) {
+    private  void dangerSort(int counter) {
         if (counter <= 2) {
             none = counter;
         }
@@ -35,22 +36,5 @@ public class Locator {
         }
     }
 
-    public int start(Human[][] data) {
-        Human[][] worker = data;
-        int count = 0;
-        int startIndex = 0;
-        int endIndex = worker.length;
-        for (int i = 0; i < worker.length; i++) {
-            for (int j = 0; j < worker[i].length; j++) {
-                if ((startIndex <= j) && (endIndex >= j)) {
-                    if ((i < worker.length) && (worker[i][j].getPeople() == "|x|")) {
-                        count++;
-                        startIndex = j;
-                    }
-                }
-            }
-        }
-        return count;
-    }
 }
 

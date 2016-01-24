@@ -22,12 +22,15 @@ public class Human {
     public void setCheck(boolean in) {
         checed = in;
     }
-
+    public void setPeople(String in){
+        people = in;
+    }
     public String getPeople() {
         return people;
     }
 
     public void print() {
+
         System.out.print(people);
     }
 }

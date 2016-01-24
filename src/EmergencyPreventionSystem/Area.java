@@ -13,12 +13,17 @@ public class Area {
     public Human[][] get() {
         return area.clone();
     }
+    public  void set(Human[][] data){
+        area = data;
+    }
+
 
     public void draw() {
         for (int k = 0; k < area[0].length + 1; k++) {
             System.out.print("---");
         }
         System.out.println();
+
         for (int k = 0; k < area[0].length + 1; k++) {
             System.out.print(k + "  ");
         }
@@ -35,21 +40,11 @@ public class Area {
         }
     }
 
-    public void drawStatus() {
-        System.out.println();
-        System.out.println("1.\tNONE");
-        System.out.println("2.\tMINOR");
-        System.out.println("3.\tNORMAL");
-        System.out.println("4.\tMAJOR");
-        System.out.println("5.\tCRITICAL");
-        for (int k = 0; k < area[0].length + 1; k++) {
-            System.out.print("===");
-        }
-    }
+
 
     public void setPeople() {
         for (int i = 0; i < area.length; i++) {
-            for (int j = 0; j < area[i].length; j++) {
+            for (int j = 0; j < area[0].length; j++) {
                 area[i][j] = new Human(new Random().nextBoolean());
             }
         }

@@ -18,23 +18,34 @@ public class Locator {
         critical = 0;
     }
 
-    private  void dangerSort(int counter) {
+    public void dangerSort(int counter) {
         if (counter <= 2) {
-            none = counter;
+            none++;
         }
         if (counter > 2 && counter <= 4) {
-            minor = counter;
+            minor++;
         }
         if (counter > 4 && counter <= 7) {
-            normal = counter;
+            normal++;
         }
         if (counter > 7 && counter <= 13) {
-            major = counter;
+            major++;
         }
         if (counter > 13) {
-            critical = counter;
+            critical++;
         }
     }
 
+    public void drawStatus() {
+        System.out.println();
+        System.out.println("1.\tNONE " + none);
+        System.out.println("2.\tMINOR " + minor);
+        System.out.println("3.\tNORMAL " + normal);
+        System.out.println("4.\tMAJOR " + major);
+        System.out.println("5.\tCRITICAL " + critical);
+        System.out.print("===");
+    }
 }
+
+
 

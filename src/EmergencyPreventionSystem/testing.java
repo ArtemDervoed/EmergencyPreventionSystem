@@ -4,14 +4,13 @@ package EmergencyPreventionSystem;
 public class testing {
     public  static void main(String[]args){
 
-        Area my = new Area(9,7);
-       Locator l = new Locator();
-
+        Area my = new Area(4,9);
+        SearchSystem ss = new SearchSystem(my);
         my.setPeople();
         my.draw();
-        my.drawStatus();
         System.out.println();
-        System.out.println(l.start(my.get()));
+       ss.start();
+        ss.locator.drawStatus();
         my.draw();
     }
 }

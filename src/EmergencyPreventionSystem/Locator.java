@@ -2,7 +2,7 @@ package EmergencyPreventionSystem;
 
 
 public class Locator {
-    private int intermediate;
+
     private int none;
     private int minor;
     private int normal;
@@ -10,7 +10,7 @@ public class Locator {
     private int critical;
 
     public Locator() {
-        intermediate = 0;
+
         none = 0;
         minor = 0;
         normal = 0;
@@ -35,7 +35,6 @@ public class Locator {
             critical++;
         }
     }
-
     public void drawStatus() {
         System.out.println();
         System.out.println("1.\tNONE " + none);
@@ -43,7 +42,6 @@ public class Locator {
         System.out.println("3.\tNORMAL " + normal);
         System.out.println("4.\tMAJOR " + major);
         System.out.println("5.\tCRITICAL " + critical);
-        System.out.print("===");
     }
 }
 

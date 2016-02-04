@@ -1,61 +1,52 @@
 
-package EmergencyPreventionSystem;
-
-import java.util.IllegalFormatException;
-import java.util.Random;
+package emergencypreventionsystem;
 
 public class Area {
-    private Human[][] area;
+    private String[][] field;
 
-    public Area(int rowCount, int gridCount) {
-        try {
-            area = new Human[rowCount][gridCount];
-        } catch (IllegalFormatException e) {
-            throw new RuntimeException("Illegal argument.");
-        }
-
+    public Area(int countRow, int countGrid) {
+        field = new String[countRow][countGrid];
+        clear(field);
     }
 
-    public Human[][] getArea() {
-        return area.clone();
-    }
-
-    public void set(Human[][] data) {
-        area = data;
-    }
-
-    public void draw() {
-        divaded();
-        if (area.length != 0) {
-            for (int k = 0; k < area[0].length + 1; k++) {
-                System.out.print(k + "  ");
-            }
-            System.out.println();
-            for (int i = 0; i < area.length; i++) {
-                System.out.print(i + 1 + " ");
-                for (int j = 0; j < area[i].length; j++) {
-                    area[i][j].print();
-                }
-                System.out.println();
-            }
-        } else return;
-        divaded();
-    }
-
-    private void divaded() {
-        if (area.length != 0) {
-            for (int row = 0; row < area.length + 1; row++) {
-                System.out.print("===");
-            }
-            System.out.println();
-        } else return;
-    }
-    public void generatePeople() {
+    public void clear(String[][] area) {
         for (int i = 0; i < area.length; i++) {
-            for (int j = 0; j < area[0].length; j++) {
-                area[i][j] = new Human(new Random().nextBoolean());
+            for (int j = 0; j < area[i].length; j++) {
+                field[i][j] = "|-|";
             }
         }
     }
+
+    public void killPeople(int x, int y) {
+        if (field[x][y] == new Human().getPeople()) {
+            field[x][y] = "|-|";
+        }
+    }
+
+    public String[][] getAllField() {
+        return field.clone();
+    }
+
+    public String getSubject(int x, int y) throws ArrayIndexOutOfBoundsException {
+        try {
+            return field[x][y];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Координаты вне поля");
+        }
+        return field[0][0];
+    }
+
+    public void setSubject(Human people, int x, int y) {
+        field[x][y] = people.getPeople();
+    }
+
+    public int getCountRow() {
+        return field.length;
+    }
+
+    public int getCountGrid() {
+        return field[0].length;
+    }
+
 }
 
